@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin:0;
+}
+body{
+    padding: 0;
+    top: 0;
+    left: 0;
+
+    font-family: 'Nunito Sans', sans-serif;
+}
+.menu{
+    border-bottom: 5px solid rgb(207, 63, 6);
+}
+.menu li:hover{
+    border-bottom: 5px solid rgb(207, 63, 6);
+}

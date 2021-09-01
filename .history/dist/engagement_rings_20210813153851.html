@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./images/grabrielIcon.png"/>
+    <title>Engagement Rings</title>
+    <link rel="stylesheet" href="output.css">
+
+    <!-- =================FONTFAMILY================= -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
+<!-- =============================VUEJS============================== -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<!-- ========================JQUERY================================ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- ======================SLICK SLIDER========================= -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+</head>
+<body>
+    
+    <header class="tw-border-b tw-border-gray-600">
+        <div class="tw-hidden md:tw-flex tw-items-center tw-justify-center tw-bg-gray-300 tw-py-2 tw-text-center">
+            <a id="helpText" class="tw-text-center hover:tw-text-red-500" v-show="helpTextVisible">STRONGER TOGETHER - Help support children in need now - <u>LEARN MORE</u></a>
+        </div>
+        <div style="width: 93%;" class="tw-mx-auto tw-my-6 tw-my-5 tw-flex tw-justify-between tw-items-center">
+            <nav class="tw-hidden lg:tw-flex">
+                <ul class="tw-flex tw-items-center tw-text-sm tw-font-bold tw-tracking-tight">
+                    <li class="tw-pr-4 hover:tw-text-red-500"><a href="#">Store Locator</a></li>
+                    <li class="tw-border-l tw-px-4 hover:tw-text-red-500"><a href="#">Wishlist</a></li>
+                    <li class="tw-border-l tw-pl-4 hover:tw-text-red-500"><a href="#">Retailer Login</a></li>
+                </ul>
+            </nav>
+
+            <img class=" tw-w-5 md:tw-w-6 lg:tw-hidden" src="https://www.pngjoy.com/pngl/41/952275_hamburger-icon-menu-icon-png-grey-hd-png.png" alt="">
+            <a href="./index.html">
+                <img class="tw-w-40 md:tw-w-72 lg:tw-w-auto" src="./images/logo_theme.svg" alt="">
+            </a>
+
+            <div class="tw-flex tw-items-center">
+                <img class="tw-w-9 md:tw-w-10 lg:tw-w-8 tw-pr-4" src="./images/search.svg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="./images/user.svg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="./images/language.svg" alt="">
+                <img class="tw-w-9 md:tw-w-10 lg:tw-w-8 tw-border-l tw-pl-4" src="./images/cart2.svg" alt="">
+            </div>
+        </div>
+
+        <div class="menu tw-hidden lg:tw-flex tw-w-full tw-mt-9 tw-justify-center">
+            <nav class="tw-flex tw-justify-center">
+                <ul class="tw-flex tw-text-sm tw-text-gray-700">
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a class="" href="./engagement_rings.html">Engagement</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">Wedding</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="women" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="men" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="weddingMetal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">Necklaces</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">Rings</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">Earrings</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">Bracelets</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">Gifts</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4">
+                        <a href="">About</a>
+
+                        <div class="dropdown-menu tw-hidden tw-absolute tw-bg-white tw-mt-6 tw-left-0 tw-w-full tw-h-80 tw-flex tw-z-50">
+                            <div class="tw-ml-14">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">POPULAR SETTINGS</h3>
+                                <div id="popularSetings" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-my-3 tw-mx-2 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs tw-w-20 tw-text-center">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-10">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHAPE</h3>
+                                <div id="shape" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">METAL</h3>
+                                <div id="metal" class="tw-flex tw-flex-wrap tw-w-72">
+                                    <div class="group tw-m-3 tw-flex tw-flex-col tw-items-center tw-cursor-pointer" v-for="image in images">
+                                        <img class="tw-w-16" :src="image.ima" alt="">
+                                        <p class="tw-text-xs">{{image.desc}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+
+                            <div class="tw-ml-5 tw-pb-4">
+                                <h3 class="tw-text-xs tw-mt-5 tw-ml-4 tw-mb-2">SHOP PREMIUM COLLECTIONS</h3>
+                                <div id="shopCollection" class="tw-w-72">
+                                    <div class="tw-mx-4 tw-my-3 tw-flex tw-flex-col" v-for="data in items">
+                                        <p class="tw-text-base hover:tw-text-red-500 tw-cursor-pointer">{{data.text}}</p>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto tw-h-500px md:tw-h-300px md:tw-justify-center md:tw-items-start lg:tw-items-center lg:tw-h-500px">
+        <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-h-auto tw-absolute md:tw-w-72 md:tw-bg-transparent md:tw-ml-10 md:tw-ml-20 lg:tw-w-96  lg:tw-left-0">
+            <h2 class="tw-text-2xl tw-text-center tw-w-60 tw-my-3 md:tw-w-auto md:tw-text-3xl">Diamond Engagement Rings</h2>
+            <p class="tw-w-64 tw-text-sm tw-text-center tw-text-gray-800 md:tw-w-auto md:tw-text-sm lg:tw-text-base">Do you know our engagement rings can be exchanged within 1 year of purchase? our engagement and wedding rings are among the finest in the world.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-800 md:tw-text-sm" href="">SHOP ALL RINGS</a>
+        </div>
+
+        <div style="background-image: url('https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/2021_Homepage_Banner_Engagement_Desktop_Banner_opt.jpg');" class="engagementBg tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+    </div>
+
+    <div class="tw-mt-5 tw-mb-28 md:tw-flex md:tw-justify-between lg:tw-px-5">
+        <div class="tw-m-2 md:tw-w-[30%] md:tw-pl-2 lg:tw-flex lg:tw-flex-col lg:tw-justify-center lg:tw-items-center">
+            <h2 class="tw-text-xl tw-text-center tw-mb-5 md:tw-text-left md:tw-text-2xl">Best Sellers</h2>
+            <p class="tw-text-xs tw-text-center tw-px-10 md:tw-text-left md:tw-p-0 md:tw-text-sm lg:tw-text-center">Shop our curated collection of beloved favorites and bestsellers.</p>
+        </div>
+        <div class="bestSellers md:tw-w-[70%]" id="bestSellers">
+            <div v-for="image in images" class="bestSelerList tw-m-2">
+                <img class="md:tw-w-full" :src="image.ima" alt="">
+                <p class="tw-text-center tw-mt-2">{{image.desc}}</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>Shop By Style</h1>
+
+    <div id="shopByStyle" class="tw-flex">
+        <div class="tw-bg-indigo-200 tw-m-2" v-for="data in images">
+            <img class="tw-w-24" :src="data.ima" alt="">
+            <p class="tw-text-center">{{data.desc}}</p>
+        </div>
+    </div>
+
+    
+    
+    <!-- =============================FOOTER=============================== -->
+
+    <div style="border-top: 1px solid rgb(238, 26, 4);" class="md:tw-px-4 md:tw-flex md:tw-flex-col-reverse lg:tw-flex-row lg:tw-px-14">
+        <div class="tw-flex tw-flex-col-reverse tw-items-center md:tw-flex-row md:tw-justify-between lg:tw-items-start">
+            <div id="footerMenu" class="tw-flex tw-flex-col tw-w-48 tw-mt-5 md:tw-w-96 md:tw-h-72 md:tw-flex-wrap lg:tw-h-64">
+                <ul class="tw-text-base tw-my-3 tw-flex-wrap tw-text-center tw-border-b-2 tw-border-gray-300 md:tw-border-none md:tw-text-left lg:tw-my-2" v-for="values in categories">
+                    <li><a href="">{{values.text}}</a></li>
+                </ul>
+            </div>
+
+            <div class="tw-text-center">
+                <p class="tw-text-sm tw-mb-2 tw-mt-10 md:tw-mt-0 lg:tw-mt-8 lg:tw-text-left">BECOME AN INSIDER</p>
+                <div class="tw-flex tw-flex-col-reverse md:tw-flex-col md:tw-justify-center">
+                    <div>
+                        <input class="tw-border tw-border-gray-900 tw-w-44 tw-h-10 tw-rounded tw-pl-2 tw-text-sm md:tw-w-60" type="text" placeholder="Email">
+                        <button class="tw-bg-gray-800 tw-text-white tw-text-sm tw-px-4 tw-py-2 tw-rounded tw-ml-2 hover:tw-bg-red-700">Sign Up</button>
+                    </div>
+                    <p class="tw-text-sm tw-mb-2 md:tw-mt-3 md:tw-text-left lg:tw-text-auto">Sign up for special offers and other perks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tw-text-center md:tw-text-left md:tw-mb-4 lg:tw-ml-10">
+            <p class="tw-mb-2 tw-mt-5 md:tw-mb-4 md:tw-mt-10 lg:tw-mt-8">FOLLOW US</p>
+            <div class="tw-flex tw-justify-center md:tw-justify-start">
+                <div class="tw-bg-gray-800 hover:tw-bg-red-700 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-4" src="./images/facebook.svg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 hover:tw-bg-red-700 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-5">
+                    <img class="tw-w-4" src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-12.jpg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 hover:tw-bg-red-700 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-5" src="./images/pinterest.svg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 hover:tw-bg-red-700 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-5">
+                    <img class="tw-w-4" src="https://icon-library.com/images/white-youtube-icon/white-youtube-icon-15.jpg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 hover:tw-bg-red-700 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-12" src="https://icon-library.com/images/twitter-icon-white-png/twitter-icon-white-png-12.jpg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 hover:tw-bg-red-700 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-ml-5 hover:tw-bg-red-500">
+                    <img class="tw-w-10" src="https://icon-library.com/images/linkedin-icon-white/linkedin-icon-white-10.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tw-flex tw-flex-col tw-items-center tw-mt-10">
+        <img class="tw-w-48 tw-mb-2" src="https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/svg/logo-theme2019.svg" alt="">
+        <ul class="tw-text-xs tw-flex">
+            <li><a href="">Privacy Policy</a></li>
+            <li class="tw-border-l tw-border-r tw-border-gray-400 tw-px-2 tw-mx-2"><a href="">Warranty</a></li>
+            <li><a href="">Sitemap</a></li>
+        </ul>
+        <p class="tw-text-xs tw-mt-2 tw-text-center">Gabriel & Co. 545 West 45th Street New York, NY, 10036 (212) 519 1400 cs@gabrielny.com</p>
+        <div class="tw-flex tw-items-center tw-mb-6">
+            <img src="https://cdn-images.gabrielny.com/is/image/GabrielCo/Default/~visa.jpg" alt="">
+            <img class="tw-m-2" src="https://cdn-images.gabrielny.com/is/image/GabrielCo/Default/~mastercard.jpg" alt="">
+            <img src="https://cdn-images.gabrielny.com/is/image/GabrielCo/Default/~american-opt.jpg" alt="">
+            <img class="tw-m-2" src="https://cdn-images.gabrielny.com/is/image/GabrielCo/Default/~visa.jpg" alt="">
+            <img src="https://cdn-images.gabrielny.com/is/image/GabrielCo/Default/~visa.jpg" alt="">
+        </div>
+    </div>
+
+
+    <SCRipt>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                images: [
+                    {ima:'./images/view_store.jpg', desc:'VIEW IN STORE'},
+                    {ima:'./images/shop_confedently.jpg', desc:'SHOP CONFIDENTLY'},
+                    {ima:'./images/handcrafted_Resized.jpg', desc:'CRAFTSMANSHIP'},
+                    {ima:'./images/identification_number.jpg', desc:'IDENTIFICATION'}
+                ]
+            }
+        });
+
+        // =======================ENGAGEMENT========================
+        var app = new Vue({
+            el: '#popularSetings',
+            data: {
+                images: [
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Halo'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Double Halo'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Three Stone'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Straight'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Solitaire'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Three Stone Halo'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Split Shank'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Free Form'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Wide band'},
+                    
+                ]
+            }
+        });
+
+        var app = new Vue({
+            el: '#shape',
+            data: {
+                images: [
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Round'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Cushion'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Oval'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Princess'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Emerald'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Pear'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Marquise'},
+                ]
+            }
+        });
+
+        var app = new Vue({
+            el: '#metal',
+            data: {
+                images: [
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Platinum'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'White Gold'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Rose Gold'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Yellow Gold'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Mixed'},
+                ]
+            }
+        });
+
+        var app = new Vue({
+            el: '#shopCollection',
+            data: {
+                items: [
+                {text:'Classic'},
+                {text:'Contemporary'},
+                {text:'Vintage Inspired'},
+                {text:'Nova'},
+                {text:'Kaslique'},
+                {text:'Blush'},
+                ]
+            }
+        });
+
+
+        // ====================WEDDING==========================
+
+        var app = new Vue({
+            el: '#women',
+            data: {
+                images: [
+                {ima:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjz22RFQrZ0L2xp6SNCjmSaN_Y4zjl3-jy4SNpslrM6cZjWRgZAlcQqlXzQIdHBPaBUGE&usqp=CAU', desc:'Halo'},
+                {ima:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjz22RFQrZ0L2xp6SNCjmSaN_Y4zjl3-jy4SNpslrM6cZjWRgZAlcQqlXzQIdHBPaBUGE&usqp=CAU', desc:'Double Halo'},
+                {ima:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjz22RFQrZ0L2xp6SNCjmSaN_Y4zjl3-jy4SNpslrM6cZjWRgZAlcQqlXzQIdHBPaBUGE&usqp=CAU', desc:'Three Stone'},
+                {ima:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjz22RFQrZ0L2xp6SNCjmSaN_Y4zjl3-jy4SNpslrM6cZjWRgZAlcQqlXzQIdHBPaBUGE&usqp=CAU', desc:'Straight'},
+                {ima:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjz22RFQrZ0L2xp6SNCjmSaN_Y4zjl3-jy4SNpslrM6cZjWRgZAlcQqlXzQIdHBPaBUGE&usqp=CAU', desc:'Solitaire'},
+                {ima:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjz22RFQrZ0L2xp6SNCjmSaN_Y4zjl3-jy4SNpslrM6cZjWRgZAlcQqlXzQIdHBPaBUGE&usqp=CAU', desc:'Three Stone Halo'}, 
+                ]
+            }
+        });
+
+        var app = new Vue({
+            el: '#men',
+            data: {
+                images: [
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Round'},
+                ]
+            }
+        });
+
+        var app = new Vue({
+            el: '#weddingMetal',
+            data: {
+                images: [
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Platinum'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'White Gold'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Rose Gold'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Yellow Gold'},
+                {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Mixed'},
+                ]
+            }
+        });
+
+
+
+        // ===================================BEST-SELLERS========================================================
+
+        var app = new Vue({
+            el: '#bestSellers',
+            data: {
+                images: [
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-Unique-14K-White-Gold-Vintage-Inspired-Diamond-Halo-Engagement-Ring_ER11865R0W44JJ-6-opt.jpg', desc:'Abel'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Gold-Round-Twisted-Diamond-Engagement-Ring_ER8817W44JJ-6-opt.jpg', desc:'Catalina'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-Vintage-Inspired-14K-White-Gold-Cushion-Halo-Round-Diamond-Engagement-Ring_ER7479W44JJ-6_opt.jpg', desc:'Delilah'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Rose-Gold-Round-Free-Form-Diamond-Engagement-Ring_ER12337R6T44JJ-6-opt.jpg', desc:'Paige'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Gold-Round-Halo-Diamond-Engagement-Ring_ER7804W44JJ-6-opt.jpg', desc:'Courtney'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Gold-Round-Three-Stone-Diamond-Engagement-Ring_ER7296W44JJ-6-opt.jpg', desc:'Chantal'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Gold-Round-Diamond-Engagement-Ring_ER7225W44JJ-6-opt.jpg', desc:'Erica'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Rose-Gold-Round-Diamond-Twisted-Engagement-Ring_ER14460R4T44JJ-6.jpg', desc:'Sandrine'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-14K-White-Rose-Gold-Round-Free-Form-Diamond-Engagement-Ring_ER12337R6T44JJ-6.jpg', desc:'Zaira'},
+                    {ima:'https://cdn-themes.gabrielny.com/site2017theme/images/theme2019/landing/engagement-rings/Medium/Gabriel-Unique-14K-White-Gold-Vintage-Inspired-Diamond-Halo-Engagement-Ring_ER12579R4W44JJ-6.jpg', desc:'Anadale'}
+                ]
+            }
+        });
+
+
+        // =====================SHOP BY STYLE==================
+
+        var app = new Vue({
+            el: '#shopByStyle',
+            data: {
+                images: [
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Halo'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Double Halo'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Three Stone'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Straight'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Solitaire'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Three Stone Halo'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Split Shank'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Free Form'},
+                    {ima:'https://image.brilliantearth.com/static/img/channel/engagement/ring-design-styles/ir295/icon/Solitaire.svg', desc:'Wide band'},
+                        
+                ]
+            }
+        });
+
+
+        
+
+        var app = new Vue({
+            el: '#footerMenu',
+            data: {
+                categories: [
+                    {text:'Bridal'},
+                    {text:'Fashion'},
+                    {text:'Gifts'},
+                    {text:'Contact Us'},
+                    {text:'Shipping & Return Policy'},
+                    {text:'Accessibility'},
+                    {text:'About Us'},
+                    {text:'Store Locator'},
+                    {text:'Blog'},
+                    {text:'Affiliate Program'},
+                    {text:'Current Promotions'},
+                ]
+            }
+        });
+    </SCRipt>
+
+    <script>
+        TextLoop(); 
+        function TextLoop(){
+            $('#helpText').fadeIn(2000, function() {
+                $('#helpText').fadeOut(2000, TextLoop);       
+            })
+        }
+    </script>
+
+
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $('.bestSellers').slick({
+            infinite: false,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows:true,
+            prevArrow:"<img class='tw-absolute tw-z-50 tw-bottom-[-70px] lg:tw-bottom-[-90px] tw-left-24 md:tw-left-24 tw-w-12 md:tw-w-16 a-left control-c prev slick-prev' src='./images/leftarrow.svg'>",
+            nextArrow:"<img class='tw-absolute tw-z-50 tw-bottom-[-70px] lg:tw-bottom-[-90px] tw-left-44 md:tw-left-48 tw-w-12 md:tw-w-16 a-right control-c next slick-next' src='./images/rightarrow.svg'>",
+            responsive: [
+                
+                {
+                breakpoint: 780,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+                },
+                {
+                breakpoint: 415,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
+
+</body>
+</html>

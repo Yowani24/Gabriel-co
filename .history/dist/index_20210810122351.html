@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+
+    <!-- =================FONTFAMILY================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+
+<!-- =============================VUEJS============================== -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+<body>
+    
+    <header class="tw-border-b tw-border-gray-600">
+        <div style="width: 93%;" class="tw-mx-auto tw-my-6 tw-my-5 tw-flex tw-justify-between tw-items-center">
+            <nav class="tw-hidden lg:tw-flex">
+                <ul class="tw-flex tw-items-center tw-text-base">
+                    <li class="tw-pr-4 hover:tw-text-red-500"><a href="#">Store Locator</a></li>
+                    <li class="tw-border-l tw-px-4 hover:tw-text-red-500"><a href="#">Wishlist</a></li>
+                    <li class="tw-border-l tw-pl-4 hover:tw-text-red-500"><a href="#">Retailer Login</a></li>
+                </ul>
+            </nav>
+
+            <img class=" tw-w-5 md:tw-w-10 lg:tw-hidden" src="https://www.pngjoy.com/pngl/41/952275_hamburger-icon-menu-icon-png-grey-hd-png.png" alt="">
+            <img class="tw-w-40 md:tw-w-96 lg:tw-w-auto" src="../src/images/logo_theme.svg" alt="">
+
+            <div class="tw-flex tw-items-center">
+                <img class="tw-w-9 md:tw-w-12 lg:tw-w-8 tw-pr-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-w-9 md:tw-w-12 lg:tw-w-8 tw-border-l tw-pl-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="menu tw-hidden lg:tw-flex tw-w-full tw-mt-9 tw-justify-center">
+            <nav class="tw-flex tw-justify-center">
+                <ul class="tw-flex tw-text-sm tw-text-gray-700">
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4 b-4"><a class="" href="">Engagement</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Wedding</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Necklaces</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Rings</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Earrings</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Bracelets</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Gifts</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="tw-bg-red-300 tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto tw-h-500px md:tw-justify-center">
+        <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-h-40 lg:tw-mr-16 md:tw-absolute md:tw-bg-transparent md:tw-mr-6">
+            <h4 class="tw-text-lg tw-mt-5">COLLECTION HIGHLIGHT</h4>
+            <h2 class="tw-text-3xl tw-my-3">Gabriel Silver</h2>
+            <p class="tw-hidden tw-text-base tw-text-center tw-text-gray-800">Silver is naturally known for its lustrous beauty and versatility. The Gabriel Silver Collection offers endless choices of intricate designs in a variety of styles that creatively apply silver’s natural properties.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-800" href="">DISCOVER</a>
+        </div>
+
+        <div style="background-image: url('../src/images/Silver_Home_Page_New.jpg');" class="bgImageConfig tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+
+    </div>
+
+    <div class="tw-flex tw-flex-wrap tw-justify-between tw-w-[98%] tw-mx-auto tw-mt-6 tw-mb-5" id="app">
+        <div class="tw-text-center" v-for="image in images">
+            <img class="tw-w-72" :src="image.ima" alt="">
+            <h3 class="tw-text-xl tw-text-center tw-mt-2 tw-mb-3">{{image.desc}}</h3>
+            <a class="tw-text-base tw-border-b tw-border-black tw-text-center" href="">LEARN MORE</a>
+        </div>
+    </div>
+
+
+    <SCRipt>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                images: [
+                    {ima:'../src/images/view_store.jpg', desc:'VIEW IN STORE'},
+                    {ima:'../src/images/shop_confedently.jpg', desc:'SHOP CONFIDENTLY'},
+                    {ima:'../src/images/handcrafted_Resized.jpg', desc:'CRAFTSMANSHIP'},
+                    {ima:'../src/images/identification_number.jpg', desc:'IDENTIFICATION'}
+                ]
+            }
+        })
+    </SCRipt>
+
+</body>
+</html>

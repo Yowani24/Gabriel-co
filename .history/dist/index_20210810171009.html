@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+
+    <!-- =================FONTFAMILY================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+
+<!-- =============================VUEJS============================== -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<!-- ========================JQUERY================================ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <header class="tw-border-b tw-border-gray-600">
+        <div class="tw-hidden md:tw-flex tw-items-center tw-justify-center tw-bg-gray-300 tw-py-2 tw-text-center">
+            <a id="helpText" class="tw-text-center hover:tw-text-red-500" v-show="helpTextVisible">STRONGER TOGETHER - Help support children in need now - <u>LEARN MORE</u></a>
+        </div>
+        <div style="width: 93%;" class="tw-mx-auto tw-my-6 tw-my-5 tw-flex tw-justify-between tw-items-center">
+            <nav class="tw-hidden lg:tw-flex">
+                <ul class="tw-flex tw-items-center tw-text-sm tw-font-bold tw-tracking-tight">
+                    <li class="tw-pr-4 hover:tw-text-red-500"><a href="#">Store Locator</a></li>
+                    <li class="tw-border-l tw-px-4 hover:tw-text-red-500"><a href="#">Wishlist</a></li>
+                    <li class="tw-border-l tw-pl-4 hover:tw-text-red-500"><a href="#">Retailer Login</a></li>
+                </ul>
+            </nav>
+
+            <img class=" tw-w-5 md:tw-w-10 lg:tw-hidden" src="https://www.pngjoy.com/pngl/41/952275_hamburger-icon-menu-icon-png-grey-hd-png.png" alt="">
+            <img class="tw-w-40 md:tw-w-96 lg:tw-w-auto" src="../src/images/logo_theme.svg" alt="">
+
+            <div class="tw-flex tw-items-center">
+                <img class="tw-w-9 md:tw-w-12 lg:tw-w-8 tw-pr-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-hidden lg:tw-flex tw-w-12 tw-border-l tw-px-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+                <img class="tw-w-9 md:tw-w-12 lg:tw-w-8 tw-border-l tw-pl-4" src="https://icon-library.com/images/turn-icon/turn-icon-8.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="menu tw-hidden lg:tw-flex tw-w-full tw-mt-9 tw-justify-center">
+            <nav class="tw-flex tw-justify-center">
+                <ul class="tw-flex tw-text-sm tw-text-gray-700">
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4 b-4"><a class="" href="">Engagement</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Wedding</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Necklaces</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Rings</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Earrings</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Bracelets</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">Gifts</a></li>
+                    <li class="tw-py-2 tw-pb-5 tw-mx-4"><a href="">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div style="background: rgba(201, 211, 213);" class="tw-bg-red-300 tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto tw-h-500px md:tw-h-300px md:tw-justify-center lg:tw-h-500px">
+        <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-h-40 md:tw-absolute md:tw-w-auto md:tw-bg-transparent md:tw-ml-60 lg:tw-right-20">
+            <h4 class="tw-text-lg tw-mt-5 md:tw-mt-0">COLLECTION HIGHLIGHT</h4>
+            <h2 class="tw-text-3xl tw-my-3">Gabriel Silver</h2>
+            <p class="tw-hidden md:tw-flex tw-w-96 tw-text-sm tw-text-center tw-text-gray-800 md:tw-text-sm lg:tw-text-base">Silver is naturally known for its lustrous beauty and versatility. The Gabriel Silver Collection offers endless choices of intricate designs in a variety of styles that creatively apply silver’s natural properties.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-800 md:tw-text-sm" href="">DISCOVER</a>
+        </div>
+
+        <div style="background-image: url('../src/images/Silver_Home_Page_New.jpg');" class="bgImageConfig tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+    </div>
+
+    <div style="background: rgb(19, 20, 20);" class="tw-bg-red-300 tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto  tw-h-500px md:tw-h-350px md:tw-justify-center lg:tw-h-500px lg:tw-mt-5">
+        <div class="tw-flex tw-flex-col tw-items-center tw-text-white tw-w-full tw-h-40 md:tw-absolute md:tw-w-auto md:tw-bg-transparent md:tw-ml-60 lg:tw-right-20">
+            <h2 class="tw-text-3xl tw-mt-8 md:tw-mt-0">Redefining Engagement</h2>
+            <p class="tw-hidden md:tw-flex tw-w-96 tw-text-sm tw-text-center tw-text-gray-100 md:tw-text-sm lg:tw-text-base">Finding a perfect, made-for-you engagement ring is simple. Gabriel & Co. is here to make your forever more beautiful.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-300 md:tw-text-sm" href="">ENGAGEMENT RINGS</a>
+        </div>
+
+        <div style="background-image: url('../src/images/2020_Homepage_Banner_Winter.jpg');" class="bgImageConfig tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+    </div>
+
+    <div style="background: rgba(231,226,223);" class="tw-bg-red-300 tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto  tw-h-500px md:tw-h-300px md:tw-justify-center lg:tw-h-500px lg:tw-mt-5">
+        <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-h-40 md:tw-absolute md:tw-w-auto md:tw-bg-transparent md:tw-ml-60 lg:tw-right-20">
+            <h4 class="tw-text-lg tw-mt-5 md:tw-mt-0">NEW FROM GABRIEL & CO.</h4>
+            <h2 class="tw-text-3xl tw-my-3">Call Me Gaby</h2>
+            <p class="tw-hidden md:tw-flex tw-w-96 tw-text-sm tw-text-center tw-text-gray-800 md:tw-text-sm lg:tw-text-base">An attractively priced, curated fine jewelry label celebrating the vibrant individuality of the young-at-heart. Designed for a special day or just Wednesday.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-800 md:tw-text-sm" href="">DISCOVER</a>
+        </div>
+
+        <div style="background-image: url('../src/images/Hompegae_Banner_Gaby_Final.jpg');" class="bgImageConfig tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+    </div>
+
+    <div style="background: rgb(197, 164, 140);" class="tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto  tw-h-500px md:tw-h-300px md:tw-justify-center lg:tw-h-500px lg:tw-mt-5">
+        <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-h-40 md:tw-absolute md:tw-w-auto md:tw-bg-transparent md:tw-ml-60 lg:tw-right-20">
+            <h4 class="tw-text-lg tw-mt-5 md:tw-mt-0 tw-text-white">ARTISANS OF LOVE</h4>
+            <h2 class="tw-text-3xl tw-my-3 tw-text-center tw-text-white">The Iconic Bujukan Collection</h2>
+            <p class="tw-hidden md:tw-flex tw-w-96 tw-text-sm tw-text-center tw-text-gray-200 md:tw-text-sm lg:tw-text-base">Delicate arcs of gold spheres are handcrafted into feminine, organic and easy-to-wear designs. A modern take on the Balinese act of persuasion.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-200 md:tw-text-sm" href="">DISCOVER</a>
+        </div>
+
+        <div style="background-image: url('../src/images/bujukan_colle_no2020.jpg');" class="bgImageConfig tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+    </div>
+
+    <div style="background: rgba(187,187,187);" class="tw-bg-red-300 tw-flex tw-flex-col tw-items-center tw-w-[98%] tw-mx-auto  tw-h-500px md:tw-h-300px md:tw-justify-center lg:tw-h-500px lg:tw-mt-5">
+        <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-h-40 md:tw-absolute md:tw-w-auto md:tw-bg-transparent md:tw-ml-60 lg:tw-right-20">
+            <h4 class="tw-text-lg tw-mt-5 md:tw-mt-0">STRONGER TOGETHER</h4>
+            <h2 class="tw-text-3xl tw-my-3 tw-text-center">A strong necklace with a powerful cause</h2>
+            <p class="tw-hidden md:tw-flex tw-w-96 tw-text-sm tw-text-center tw-text-gray-800 md:tw-text-sm lg:tw-text-base">Help support children in need with the purchase of our special edition necklace.</p>
+            <a class="tw-border-b-2 tw-border-gray-400 tw-mt-3 tw-text-gray-800 md:tw-text-sm" href="">LEARN MORE</a>
+        </div>
+
+        <div style="background-image: url('../src/images/Homepage_Banner_Stronger_Together.jpg');" class="bgImageConfig tw-bg-no-repeat tw-bg-cover tw-w-full tw-h-full"></div>
+    </div>
+    
+    <div class="tw-flex tw-flex-wrap tw-justify-between tw-w-[98%] tw-mx-auto tw-mt-6" id="app">
+        <div class="tw-text-center tw-mb-5" v-for="image in images">
+            <img class="tw-w-36 md:tw-w-60 lg:tw-w-72 " :src="image.ima" alt="">
+            <h3 class="tw-text-xs lg:tw-text-xl tw-text-center tw-mt-2 tw-mb-3">{{image.desc}}</h3>
+            <a class="tw-text-base tw-border-b tw-border-black tw-text-center" href="">LEARN MORE</a>
+        </div>
+    </div>
+
+    <div class="tw-flex tw-items-center tw-justify-center tw-my-10">
+        <img class="tw-w-48 md:tw-w-auto" src="https://cdn-images.gabrielny.com/is/image/GabrielCo/Default/~Gabriel%20Claim.jpg" alt="">
+    </div>
+
+    <div>
+        <div>
+            <div id="footerMenu" class="tw-flex tw-flex-col tw-flex-wrap tw-w-400px tw-h-48">
+                <ul class="tw-text-base tw-my-1" v-for="values in categories">
+                    <li><a href="">{{values.text}}</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="tw-mb-2">BECOME AN INSIDER</p>
+                <div>
+                    <input class="tw-border tw-border-gray-900 tw-h-10 tw-rounded tw-pl-2" type="text" placeholder="Email">
+                    <button class="tw-bg-gray-800 tw-text-white tw-px-4 tw-py-2 tw-rounded">Sign Up</button>
+                </div>
+                <p class="tw-mt-2">Sign up for special offers and other perks.</p>
+            </div>
+        </div>
+
+        <div>
+            <p>FOLLOW US</p>
+            <div class="tw-bg-red-400">
+                <div class="tw-bg-gray-800 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-4" src="https://lh3.googleusercontent.com/proxy/MokkjsyJfHf_629qCFtFi4NTI5NjtoyjOETIYHR1EjjhQmkO_Opg5TS6XA8V3KASMp3NFr5CfavCZeTofbbKhaIU6D9Iq32B9AeEKwKRGqHtdHjwHT4RrRxrZ2xgHYm5ax6bt2ke6-NuYFHtf50dLpXlwktghdUFUqT-b1NoQA" alt="">
+                </div>
+                <div class="tw-bg-gray-800 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-4" src="https://icon-library.com/images/white-instagram-icon-png/white-instagram-icon-png-12.jpg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-10" src="https://lh3.googleusercontent.com/proxy/YcaDTGpfxEukuCTnrJzQ3DspckJj37EP4HQckXwZiDX70Z7pJicX-Z7iwpujNe8EsGyUglqofFg3hpcSrLYtGwEnNeH2wKrr5_Fj8trQMZlAB-mdU074rBom" alt="">
+                </div>
+                <div class="tw-bg-gray-800 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-4" src="https://icon-library.com/images/white-youtube-icon/white-youtube-icon-15.jpg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-12" src="https://icon-library.com/images/twitter-icon-white-png/twitter-icon-white-png-12.jpg" alt="">
+                </div>
+                <div class="tw-bg-gray-800 tw-w-7 tw-h-7 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                    <img class="tw-w-10" src="https://icon-library.com/images/linkedin-icon-white/linkedin-icon-white-10.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <SCRipt>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                images: [
+                    {ima:'../src/images/view_store.jpg', desc:'VIEW IN STORE'},
+                    {ima:'../src/images/shop_confedently.jpg', desc:'SHOP CONFIDENTLY'},
+                    {ima:'../src/images/handcrafted_Resized.jpg', desc:'CRAFTSMANSHIP'},
+                    {ima:'../src/images/identification_number.jpg', desc:'IDENTIFICATION'}
+                ]
+            }
+        });
+
+        var app = new Vue({
+            el: '#footerMenu',
+            data: {
+                categories: [
+                    {text:'Bridal'},
+                    {text:'Fashion'},
+                    {text:'Gifts'},
+                    {text:'Contact Us'},
+                    {text:'Shipping & Return Policy'},
+                    {text:'Accessibility'},
+                    {text:'About Us'},
+                    {text:'Store Locator'},
+                    {text:'Blog'},
+                    {text:'Affiliate Program'},
+                    {text:'Current Promotions'},
+                ]
+            }
+        });
+    </SCRipt>
+
+    <script>
+        TextLoop(); 
+        function TextLoop(){
+            $('#helpText').fadeIn(2000, function() {
+                $('#helpText').fadeOut(2000, TextLoop);       
+            })
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin:0;
+}
+body{
+    padding: 0;
+    top: 0;
+    left: 0;
+
+    font-family: 'Nunito Sans', sans-serif;
+}
+.menu li{
+    border-bottom: 5px solid transparent;
+}
+.menu li:hover{
+    border-bottom: 5px solid rgb(207, 63, 6);
+}
+
+.bgImageConfig{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:50% 100%;
+}
